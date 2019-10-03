@@ -1,0 +1,23 @@
+<h1 class="text-center blue-grey-text mt-5">Time For Quiz</h1>
+<div class="my-5" *ngFor="let quiz of quiz | paginate : config">
+    <div class="container">
+        <div class="card" style="font-size: 30px">
+            <div class="card-header text-center">Exam</div>
+            <div class="card-body">
+                {{quiz.Text}}
+                <ul>
+                    <mdb-checkbox [default]="true">{{ quiz.Answers[0].Text}}</mdb-checkbox>
+                    <mdb-checkbox [default]="true">{{ quiz.Answers[1].Text}}</mdb-checkbox>
+                    <mdb-checkbox *ngIf="quiz.Answers[2]" [default]="true">{{ quiz.Answers[2].Text}}</mdb-checkbox>
+                    <mdb-checkbox *ngIf="quiz.Answers[3]" [default]="true">{{ quiz.Answers[3].Text}}</mdb-checkbox>
+                </ul>
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn"><mdb-icon fas icon="fast-backward"></mdb-icon></button>
+                <button class="btn" (click)="down()"><mdb-icon fas icon="arrow-left"></mdb-icon></button>
+                <button class="btn" (click)="up()"><mdb-icon fas icon="arrow-right"></mdb-icon></button>
+                <button class="btn"><mdb-icon fas icon="fast-forward"></mdb-icon></button>
+            </div>
+        </div>
+    </div>
+</div>
