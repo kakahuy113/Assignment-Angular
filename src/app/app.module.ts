@@ -22,7 +22,7 @@ import { TestingComponent } from './components/testing/testing.component';
 import { NavComponent } from './nav/nav.component';
 import { DetailCatalogueComponent } from './components/detail-catalogue/detail-catalogue.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

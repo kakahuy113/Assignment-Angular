@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ContactService {
-  url: string = 'http://localhost:3000/send';
+  url: string = 'http://localhost:8080/send';
   constructor(private http: HttpClient) { }
   
   sendMessage(messageContent: any) {
