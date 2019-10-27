@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '../../dist/Final'));
+app.use(express.static(__dirname + '/dist/Final'));
 
 const transporter = nodemailer.createTransport({
 
@@ -96,7 +96,7 @@ app.post('/send', function (req, res) {
 });
 
 app.get('*/' , function(req ,res) {
-  res.sendFile(path.join(__dirname + '../../dist/Final/index.html'));
+  res.sendFile(path.join(__dirname + '/dist/Final/index.html'));
 });
 
 app.listen(port, () => {
