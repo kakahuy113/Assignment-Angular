@@ -1,0 +1,43 @@
+<!-- Default form login -->
+<form class="text-center border border-light p-5" action="#!">
+
+    <p class="h4 mb-4">Sign in</p>
+
+    <!-- Email -->
+    <input type="email" class="form-control mb-4" placeholder="E-mail" #userName required autofocus>
+
+    <!-- Password -->
+    <input type="password" class="form-control mb-4" placeholder="Password" #userPassword required>
+
+    <div class="d-flex justify-content-around">
+        <div>
+            <!-- Remember me -->
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+            </div>
+        </div>
+        <div>
+            <!-- Forgot password -->
+            <a routerLink="/forgot-pass">Forgot password?</a>
+        </div>
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" value="Log in" (click)="authService.SignIn(userName.value , userPassword.value)" type="submit">Sign in</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a routerLink="/register">Register</a>
+    </p>
+
+    <!-- Social login -->
+    <p>or sign in with:</p>
+
+    <a (click)="authService.FacebookAuth()" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+    <a (click)="authService.GoogleAuth()" class="mx-2" role="button"><i class="fab fa-google light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+</form>
+<!-- Default form login -->

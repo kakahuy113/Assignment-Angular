@@ -7,8 +7,11 @@ import { AskComponent } from './components/ask/ask.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { TestingComponent } from './components/testing/testing.component';
 import { CatalogueComponent } from './components/catalogue/catalogue.component';
-import { SignInComponent } from './components/sign-in/sign-in.component'
-import { SignUpComponent } from './components/sign-up/sign-up.component'
+import { SignInComponent } from './usercomponent/sign-in/sign-in.component'
+import { SignUpComponent } from './usercomponent/sign-up/sign-up.component'
+import { UserChangeComponent } from './usercomponent/user-change/user-change.component'
+import { VerifyComponent } from './usercomponent/verify/verify.component'
+import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.component'
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path : 'home' , component : HomeComponent },
@@ -20,8 +23,9 @@ const routes: Routes = [
   { path : 'exam', component : CatalogueComponent},
   { path : 'login', component : SignInComponent},
   { path : 'register', component : SignUpComponent},
-  
-  
+  {path : 'user' , component : UserChangeComponent},
+  { path : 'verify-email' , component : VerifyComponent },
+  { path : 'forgot-pass' , component : ForgotPassComponent}
 ];
 
 @NgModule({

@@ -6,11 +6,11 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '/dist/Final'));
+app.use(express.static(__dirname + '../../dist/Final'));
 
 const transporter = nodemailer.createTransport({
 
-  host: 'smtp.gmail.com',
+  host: 'smtp.gmail.com', 
   provider: 'gmail',
   port: 465,
   secure: true,
@@ -96,10 +96,10 @@ app.post('/send', function (req, res) {
 });
 
 app.get('*/' , function(req ,res) {
-  res.sendFile(path.join(__dirname + '/dist/Final/index.html'));
+  res.sendFile(path.join(__dirname + '../../dist/Final/index.html'));
 });
 
-app.listen(port , () => {
-  console.log("you are listen to port :" + port);
+app.listen(port, () => {
+  console.log('you are listen to ' + port);
   
-});
+})

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GetService {
+export class GetService { 
 
   constructor(private http : HttpClient) { }
   getquiz(id) : Observable<quiz[]> {

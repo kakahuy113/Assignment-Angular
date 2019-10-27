@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LandRService } from './land-r.service';
+import { AuthService } from './auth.service';
 
-describe('LandRService', () => {
+describe('AuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: LandRService = TestBed.get(LandRService);
+    const service: AuthService = TestBed.get(AuthService);
     expect(service).toBeTruthy();
   });
 });
