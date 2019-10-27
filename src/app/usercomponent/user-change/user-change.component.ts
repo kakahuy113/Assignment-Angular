@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpClient } from "@angular/common/http";
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/Authentication/auth.service'
 
 @Component({
   selector: 'app-user-change',
@@ -10,11 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserChangeComponent implements OnInit {
 
-	constructor(private http: HttpClient, private route: ActivatedRoute) {
-
-	}
-
-	
+	constructor(private authService : AuthService) {}
 
 	ngOnInit()
 	{

@@ -12,20 +12,24 @@ import { SignUpComponent } from './usercomponent/sign-up/sign-up.component'
 import { UserChangeComponent } from './usercomponent/user-change/user-change.component'
 import { VerifyComponent } from './usercomponent/verify/verify.component'
 import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.component'
+
+import { AuthGuard } from './shared/guard/auth.guard'
+import { SecureInnerPages } from './shared/guard/secure-inner-pages.guard.ts.guard'
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path : 'home' , component : HomeComponent },
-  { path : 'contact' , component : ContactComponent },
-  { path : 'about' , component : AboutComponent},
-  { path : 'ask' , component : AskComponent},
-  { path : 'feedback' , component : FeedbackComponent},
-  { path : 'exam/:id' , component : TestingComponent},
-  { path : 'exam', component : CatalogueComponent},
-  { path : 'login', component : SignInComponent},
-  { path : 'register', component : SignUpComponent},
-  {path : 'user' , component : UserChangeComponent},
-  { path : 'verify-email' , component : VerifyComponent },
-  { path : 'forgot-pass' , component : ForgotPassComponent}
+  { path : 'contact' , component : ContactComponent},
+  { path : 'about' , component : AboutComponent },
+  { path : 'ask' , component : AskComponent },
+  { path : 'feedback' , component : FeedbackComponent },
+  { path : 'exam/:id' , component : TestingComponent , canActivate : [AuthGuard]},
+  { path : 'exam', component : CatalogueComponent , canActivate : [AuthGuard]},
+  { path : 'login', component : SignInComponent , canActivate : [SecureInnerPages]},
+  { path : 'register', component : SignUpComponent , canActivate : [SecureInnerPages]},
+  {path : 'user' , component : UserChangeComponent , canActivate : [AuthGuard]},
+  { path : 'verify-email' , component : VerifyComponent , canActivate : [SecureInnerPages] },
+  { path : 'forgot-pass' , component : ForgotPassComponent , canActivate : [SecureInnerPages]}
 ];
 
 @NgModule({

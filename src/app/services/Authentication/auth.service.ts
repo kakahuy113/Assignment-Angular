@@ -79,6 +79,11 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
+  get isLoggedOut() : boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null && user.emailVerified !== false) ? false : true;
+  }
+
   //Auth logic to run auth providers
   async AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
