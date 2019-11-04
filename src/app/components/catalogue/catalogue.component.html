@@ -1,6 +1,6 @@
  <h1 class="text-center my-5 deep-orange-text">Chose Your Quiz to Text Your Skill</h1>
  <div class="grid-containerc" >
-        <div class="card" *ngFor="let temp of list | paginate: config">
+        <div class="card z-depth-5" *ngFor="let temp of list | paginate: config">
             <div class="card-body"><img src="{{temp.logo}}" alt="{{temp.subject}}"></div>
             <div class="card-footer">
                 <h3><a routerLink="/exam/{{temp.id}}">{{temp.subject}}</a></h3>

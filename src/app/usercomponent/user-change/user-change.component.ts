@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Title } from '@angular/platform-browser';
 import { AuthService } from '../../services/Authentication/auth.service'
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from '../../services/Authentication/auth.service'
 })
 export class UserChangeComponent implements OnInit {
 
-	constructor(private authService : AuthService) {}
+	constructor(private authService : AuthService, private title : Title) { this.title.setTitle('User')}
 
 	ngOnInit()
 	{

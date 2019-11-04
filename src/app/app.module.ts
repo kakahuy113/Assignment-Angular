@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
+import { CountdownModule } from 'ngx-countdown';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,9 +22,7 @@ import { UserChangeComponent } from './usercomponent/user-change/user-change.com
 import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { TestingComponent } from './components/testing/testing.component';
 import { NavComponent } from './nav/nav.component';
-import { DetailCatalogueComponent } from './components/detail-catalogue/detail-catalogue.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CountdownModule } from 'ngx-countdown';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -30,6 +30,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './services/Authentication/auth.service'
 import { VerifyComponent } from './usercomponent/verify/verify.component';
 import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.component';
+import { DocumentationComponent } from './components/documentation/documentation.component';
+import { HintComponent } from './components/documentation/hint/hint.component';
+import { PieComponent } from './components/pie/pie.component';
 @NgModule({
 
   declarations: [
@@ -45,10 +48,12 @@ import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.com
     CatalogueComponent,
     TestingComponent,
     NavComponent,
-    DetailCatalogueComponent,
     FooterComponent,
     VerifyComponent,
     ForgotPassComponent,
+    DocumentationComponent,
+    HintComponent,
+    PieComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ import { ForgotPassComponent } from './usercomponent/forgot-pass/forgot-pass.com
     AngularFireModule.initializeApp(environment.firebaseConfig),  // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    ChartsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

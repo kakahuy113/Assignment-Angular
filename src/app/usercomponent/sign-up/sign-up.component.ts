@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../model/login';
 import { NgForm, FormBuilder, FormGroup, Validator, Validators, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+
 import { AuthService } from '../../services/Authentication/auth.service';
 @Component({
   selector: 'app-sign-up',
@@ -16,8 +14,6 @@ export class SignUpComponent implements OnInit {
  
   constructor(
     private formBuilder: FormBuilder, 
-    private http: HttpClient, 
-    private router: Router,
     public authService : AuthService
     ) {
    

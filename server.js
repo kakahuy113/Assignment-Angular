@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '/dist/Final'));
+
 
 const transporter = nodemailer.createTransport({
 
@@ -32,6 +32,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('/send' , function (req , res ,next) {
+  
+  next();
+})
+
 app.post('/send', function (req, res) {
 
   let senderName = req.body.contactFormName;
@@ -42,7 +47,7 @@ app.post('/send', function (req, res) {
 
   let mailOptions = {
     to: senderEmail, // Enter here the email address on which you want to send emails from your customers
-    from: senderName,
+    
     subject: messageSubject,
     text: messageText,
     replyTo: senderEmail
@@ -95,9 +100,7 @@ app.post('/send', function (req, res) {
   });
 });
 
-app.get('*/' , function(req ,res) {
-  res.sendFile(path.join(__dirname + '/dist/Final/index.html'));
-});
+
 
 app.listen(port, () => {
   console.log('you are listen to ' + port);

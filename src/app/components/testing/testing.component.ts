@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetService } from '../../services/data/get.service';
-
+import { Title } from '@angular/platform-browser'
 import { ActivatedRoute } from '@angular/router';
 import { quiz } from '../../model/quiz'
 import { map } from 'rxjs/operators'
@@ -10,19 +10,21 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./testing.component.scss']
 })
 export class TestingComponent implements OnInit {
-  quiz;
+  quiz :quiz[];
   config;
-  constructor(private get: GetService, private route: ActivatedRoute) {
+  constructor(private get: GetService, private route: ActivatedRoute, private title : Title) {
     this.config = {
       itemsPerPage: 1,
       currentPage: 1,
       totalItems: Number
     }
+
+    this.title.setTitle('Test')
   }
   listChoose = [];
   changed(choose, index) {
     this.listChoose[index] = choose
-    console.log(choose);
+   
 
   }
   ngOnInit() {
@@ -33,14 +35,24 @@ export class TestingComponent implements OnInit {
       ).subscribe(quiz => {
         this.config.totalItems = quiz.length
       })
-
     })
-
     
-
-
-
+    
   }
+  
+  Submit() {
+    let mark =0;
+    for(var i = 0; i < this.listChoose.length; i++) {
+      if(this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId) {
+        mark++;
+      }
+    }
+  
+    return mark;
+    
+    
+  }
+
   up() {
     this.config.currentPage++;
   }

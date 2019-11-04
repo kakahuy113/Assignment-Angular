@@ -6,7 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ContactService {
   url: string = 'http://localhost:8080/send';
   constructor(private http: HttpClient) { }
-  
   sendMessage(messageContent: any) {
     return this.http.post(this.url,
     JSON.stringify(messageContent),

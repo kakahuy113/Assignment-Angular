@@ -44,16 +44,17 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  async SignUp(email , password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email , password)
-      .then((result) => {
-       /*  call the sendVirificationMail() function when new user sign up 
+   async SignUp(email , password) {
+    try {
+       const result = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+       /*  call the sendVirificationMail() function when new user sign up
        and returns promise */
        this.SendVerificationMail();
        this.SetUserData(result.user);
-      }).catch(error => {
-        window.alert(error.message);
-      })
+     }
+     catch (error) {
+       window.alert(error.message);
+     }
   }
 
   // Send email verification when new user sign up

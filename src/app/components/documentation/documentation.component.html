@@ -1,0 +1,12 @@
+<h1 class="text-center my-5 deep-orange-text">Chose Your Quiz to Text Your Skill</h1>
+<div class="grid-containerc" >
+       <div class="card" *ngFor="let temp of list | paginate: config">
+           <div class="card-body"><img src="{{temp.logo}}" alt="{{temp.subject}}"></div>
+           <div class="card-footer">
+               <h3><a [routerLink]="['hint' ,{id :temp.id}]">{{temp.subject}}</a></h3>
+           </div>
+       </div>
+   </div>
+   <div class="mt-4">
+       <pagination-controls (pageChange)="pageChanged($event)" class="text-center"></pagination-controls>
+   </div>
