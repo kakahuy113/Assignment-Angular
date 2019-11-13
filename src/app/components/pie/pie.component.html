@@ -2,16 +2,16 @@
     <h1>The Chart Show You Percent Of Done And Fail In Your Exam</h1>
 </div>
 <div style="display: block">
-    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="Color">
+    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="chartColors">
     </canvas>
 </div>
 <br>
 <div class="text-center my-4" *ngIf="authService.userData as user">
-    <h3><strong>Your Point: </strong>{{mark}}</h3>
+    <h3><strong>Your Point: </strong>{{point}}</h3>
     <p><strong>User: </strong>{{(user.displayName) ? user.displayName : 'User'}}</p>
     <p><strong>Email: </strong>{{user.email}}</p>
-    <p><strong>Done: </strong>{{temp}}</p>
-    <p><strong>Fail: </strong>{{100-temp}}</p>
+    <p><strong>Done: </strong>{{temp}} %</p>
+    <p><strong>Fail: </strong>{{100-temp}} %</p>
     <hr>
     <button class="btn btn-primary" routerLink="/exam">Let's go For another test</button>
     <br>

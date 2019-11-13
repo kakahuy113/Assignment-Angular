@@ -44,7 +44,7 @@
             <div class="col-2">
                 <countdown #countdown class="float-right" style="font-size: 20px;" [config]="{leftTime:3600}">$!m!:$!s!
                 </countdown> <br> <br>
-                <button class="btn blue-grey float-right" [routerLink]="['result' , {mark : Submit()}]" type="submit">Submit</button>
+                <button class="btn blue-grey float-right" (click)="onSubmit()" type="submit">Submit</button>
                
             </div>
         </div>
