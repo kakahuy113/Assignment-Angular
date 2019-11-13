@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="card blue-grey-text col-10 p-0" style="font-size: 20px">
+            <div class="card blue-grey-text col-lg-10 col-12 p-0" style="font-size: 20px">
                 <div class="card-header text-center" style="font-size: 30px">Exam</div>
                 <div class="card-body" *ngFor="let quiz of quiz | paginate : config">
                     {{config.currentPage}}./{{quiz.Text}}
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-lg-2 col-12">
                 <countdown #countdown class="float-right" style="font-size: 20px;" [config]="{leftTime:3600}">$!m!:$!s!
                 </countdown> <br> <br>
                 <button class="btn blue-grey float-right" (click)="onSubmit()" type="submit">Submit</button>

@@ -17,10 +17,10 @@
       <li class="nav-item">
         <a class="nav-link waves-light" routerLink="/document" mdbWavesEffect>Documentation</a>
       </li>
-     
+
 
       <!-- Dropdown -->
-    
+
 
     </ul>
     <!-- Links -->
@@ -36,17 +36,19 @@
           <mdb-icon fas icon="cog"></mdb-icon> About
         </a>
       </li>
-
+      <li class="nav-item" *ngIf="authService.isLoggedIn">
+        <a class="nav-link waves-light" routerLink="/user" mdbWavesEffect>
+          <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span>
+        </a>
+      </li>
       <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown>
+      <li class="nav-item dropdown" *ngIf="authService.isLoggedOut" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" *ngIf="authService.isLoggedOut" mdbWavesEffect routerLink="/login">Sign In</a>
-          <a class="dropdown-item waves-light" *ngIf="authService.isLoggedOut" mdbWavesEffect routerLink="/register">Sign up</a>
-          <a class="dropdown-item waves-light" *ngIf="authService.isLoggedIn" mdbWavesEffect routerLink="/user">My Profile</a>
-          
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/login">Sign In</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/register">Sign up</a>
         </div>
       </li>
 
