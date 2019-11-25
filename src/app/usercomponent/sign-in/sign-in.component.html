@@ -40,4 +40,9 @@
     <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
 </form>
+<ul>
+    <li *ngFor="let item of items | async">
+      {{ item | json }}
+    </li>
+  </ul>
 <!-- Default form login -->

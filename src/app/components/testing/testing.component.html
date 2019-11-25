@@ -3,9 +3,9 @@
     <div class="container">
 
         <div class="row">
-            <div class="card blue-grey-text col-lg-10 col-12 p-0" style="font-size: 20px">
+            <div class="card blue-grey-text col-lg-10 col-12 p-0" style="font-size: 20px" *ngFor="let quiz of quiz | paginate : config">
                 <div class="card-header text-center" style="font-size: 30px">Exam</div>
-                <div class="card-body" *ngFor="let quiz of quiz | paginate : config">
+                <div class="card-body" >
                     {{config.currentPage}}./{{quiz.Text}}
                     <ul>
 
@@ -26,10 +26,10 @@
                     </ul>
                 </div>
                 <div class="card-footer text-center">
-                    <button class="btn" (click)="firstpage()">
+                    <button class="btn"  (click)="firstpage()">
                         <mdb-icon fas icon="fast-backward"></mdb-icon>
                     </button>
-                    <button class="btn" (click)="down()">
+                    <button  class="btn" (click)="down()">
                         <mdb-icon fas icon="arrow-left"></mdb-icon>
                     </button>
                     <button class="btn" (click)="up()">

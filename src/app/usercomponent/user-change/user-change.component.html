@@ -1,11 +1,11 @@
 
-    <div class="container z-depth-5 my-5" *ngIf="authService.userData as user">
+    <div class="container my-5 " *ngIf="authService.userData as user">
   
-      <h4 class="py-4 text-center">Profile</h4>
+    
   
       <!--Card-->
-      <div class="card card-cascade wider mb-4">
-  
+      <div class="card card-cascade wider mb-4 w-50 h-50  z-depth-5 ">
+  <div class="card-header"><h4 class="py-4 text-center">Profile</h4></div>
         <!--Card image-->
         <div class="view view-cascade">
           <img src="{{(user.photoURL) ? user.photoURL : 'https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg'}}" alt="{{user.displayName}}" class="card-img-top">

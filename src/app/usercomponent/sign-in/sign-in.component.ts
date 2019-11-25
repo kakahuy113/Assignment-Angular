@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, Validator, FormControl, Validators } from '@angular/forms'
 import { map } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
-import { AuthService } from '../../services/Authentication/auth.service'
+import { AuthService } from '../../services/Authentication/auth.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -11,11 +13,14 @@ import { AuthService } from '../../services/Authentication/auth.service'
 })
 export class SignInComponent implements OnInit {
   userform: FormGroup
+  items: Observable<any[]>;
   constructor(
     private formbuilder: FormBuilder,
     private title: Title,
-    public authService: AuthService
+    public authService: AuthService,
+    db :AngularFirestore
   ) {
+    this.items = db.collection('items').valueChanges();
     this.title.setTitle('Login')
   } // end of constructor
 

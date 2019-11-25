@@ -24,10 +24,8 @@ export class TestingComponent implements OnInit {
     this.title.setTitle('Test')
   }
   listChoose = [];
-  changed(choose, index) {
+  changed(choose, index) {  
     this.listChoose[index] = choose
-   
-
   }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
