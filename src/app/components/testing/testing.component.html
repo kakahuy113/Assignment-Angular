@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-lg-2 col-12">
-                <countdown #countdown class="float-right" style="font-size: 20px;" [config]="{leftTime:3600}">$!m!:$!s!
+                <countdown #countdown class="float-right" style="font-size: 20px;" [config]="{leftTime:3600 , demand: false}" (event)="onFinished($event)">$!m!:$!s!
                 </countdown> <br> <br>
                 <button class="btn blue-grey float-right" (click)="onSubmit()" type="submit">Submit</button>
                

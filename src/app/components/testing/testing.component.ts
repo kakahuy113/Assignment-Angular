@@ -42,6 +42,19 @@ export class TestingComponent implements OnInit {
     
   }
   
+  onFinished(event) {
+    if(event.action == "done") {   
+    let mark =0;
+    for(var i = 0; i < this.listChoose.length; i++) {
+      if(this.quiz[i].Answers[this.listChoose[i] -1].Id === this.quiz[i].AnswerId) {
+        mark++;
+      }
+    }
+    localStorage.setItem('mark' , mark.toString())
+    this.router.navigate([ `/exam/${this.id}/result` ])
+    }
+  }
+
   onSubmit() {
     let mark =0;
     for(var i = 0; i < this.listChoose.length; i++) {
@@ -51,8 +64,6 @@ export class TestingComponent implements OnInit {
     }
     localStorage.setItem('mark' , mark.toString())
     this.router.navigate([ `/exam/${this.id}/result` ])
-    
-    
   }
 
   up() {
