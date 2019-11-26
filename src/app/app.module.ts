@@ -57,6 +57,7 @@ import { PieComponent } from './components/pie/pie.component';
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     AppRoutingModule,
     NgxPaginationModule,
     HttpClientModule,
@@ -68,7 +69,7 @@ import { PieComponent } from './components/pie/pie.component';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    ChartsModule
+    
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

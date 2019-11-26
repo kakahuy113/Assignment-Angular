@@ -11,12 +11,11 @@ import { Location } from '@angular/common'
 export class PieComponent implements OnInit {
   total : number;
   temp : number ;
-  mark :number;
+  mark :number =parseInt(localStorage.getItem('mark'))
   point : number;
   public pieChartLabels = ['Done' , 'Fail']
-  public pieChartData = [];
+  public pieChartData = [Math.round(((this.mark/this.total)*100) * 100) / 100 , 100 - (Math.round(((this.mark/this.total)*100) * 100))];
   public pieChartType = 'pie';
-  public chartColors  = ['white' , 'rgba(255, 159, 64, 0.2)']
   constructor(
     private route : ActivatedRoute, 
     private data : GetService, 
