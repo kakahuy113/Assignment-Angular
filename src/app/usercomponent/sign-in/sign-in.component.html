@@ -33,11 +33,9 @@
 
     <!-- Social login -->
     <p>or sign in with:</p>
-
-    <a (click)="authService.FacebookAuth()" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-    <a (click)="authService.GoogleAuth()" class="mx-2" role="button"><i class="fab fa-google light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+    <button class="btn btn-info btn-block my-4" (click)="authService.GoogleAuth()" value="Log in"><i class="fab fa-google"></i> Google</button>
+    <button class="btn btn-info btn-block my-4" (click)="authService.FacebookAuth()" value="Log in"><i class="fab fa-facebook-f "></i> Facebook</button>
+    
 
 </form>
 <ul>
