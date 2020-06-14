@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="card blue-grey-text col-lg-10 col-12 p-0" style="font-size: 20px" *ngFor="let quiz of quiz | paginate : config">
+            <div class="card blue-grey-text col-lg-8 col-12 p-0" style="font-size: 20px" *ngFor="let quiz of quiz | paginate : config">
                 <div class="card-header text-center" style="font-size: 30px">Exam</div>
                 <div class="card-body" >
                     {{config.currentPage}}./{{quiz.Text}}
@@ -41,11 +41,23 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 col-12">
-                <countdown #countdown class="float-right" style="font-size: 20px;" [config]="{leftTime:3600 , demand: false}" (event)="onFinished($event)">$!m!:$!s!
-                </countdown> <br> <br>
-                <button class="btn blue-grey float-right" (click)="onSubmit()" type="submit">Submit</button>
-               
+            <div class="col-lg-4 col-12">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <countdown 
+                        #countdown 
+                        style="font-size: 20px;" 
+                        [config]="{leftTime:3600 , demand: false}" 
+                        (event)="onFinished($event)">$!m!:$!s!
+                        </countdown>
+                    </div>
+                    <div class="card-body"  >
+                        <strong *ngFor="let a of quiz;index as i" style="display: inline-block; margin: 5px 5px 5px 5px;" (click)="goto(i)">{{ i + 1 }}</strong>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn blue-grey"  (click)="onSubmit()" type="submit">Submit</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

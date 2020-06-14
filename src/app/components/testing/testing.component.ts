@@ -11,14 +11,14 @@ import { Router } from '@angular/router'
   styleUrls: ['./testing.component.scss']
 })
 export class TestingComponent implements OnInit {
-  quiz :quiz[];
+  quiz: quiz[];
   config;
   public id;
   constructor(private get: GetService, private route: ActivatedRoute, private title : Title, private router : Router) {
     this.config = {
       itemsPerPage: 1,
       currentPage: 1,
-      totalItems: Number
+      totalItems: 0
     }
 
     this.title.setTitle('Test')
@@ -36,10 +36,10 @@ export class TestingComponent implements OnInit {
         this.config.totalItems = quiz.length
       })
     })
-    
-    
   }
-  
+  goto(index) {
+    this.config.currentPage = index + 1;
+  }
   onFinished(event) {
     if(event.action == "done") {   
     let mark =0;
@@ -65,10 +65,18 @@ export class TestingComponent implements OnInit {
   }
 
   up() {
-    this.config.currentPage++;
+    if(this.config.currentPage === this.config.totalItems) {
+      console.log('It end');
+    } else {
+      this.config.currentPage++;
+    }
   }
   down() {
-    this.config.currentPage--;
+    if(this.config.currentPage === 1) {
+      console.log('It end');
+    } else {
+      this.config.currentPage--;
+    }
   }
   firstpage() {
     this.config.currentPage = 1
